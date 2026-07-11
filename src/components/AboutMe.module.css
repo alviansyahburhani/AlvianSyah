@@ -47,7 +47,7 @@
   line-height: 0.9;
   letter-spacing: 0.05em;
   margin: 0;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   cursor: default;
 }
 
@@ -64,7 +64,7 @@
   line-height: 0.9;
   letter-spacing: 0.05em;
   margin: 0;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   cursor: default;
 }
 
@@ -102,7 +102,7 @@
   border-radius: 8px;
   text-decoration: none;
   width: fit-content;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   box-shadow: 0 4px 15px rgba(184, 205, 134, 0.2);
 }
 
@@ -126,7 +126,7 @@
   border-radius: 8px;
   text-decoration: none;
   width: fit-content;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .ghostBtn:hover {
@@ -160,7 +160,7 @@
   overflow: hidden;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: all 0.4s ease-in-out;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   display: flex;
 }
 
@@ -180,7 +180,7 @@
   background: radial-gradient(circle at center, rgba(184, 205, 134, 0.15) 0%, transparent 70%);
   z-index: 0;
   pointer-events: none;
-  transition: all 0.4s ease-in-out;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   opacity: 0.5;
 }
 
@@ -348,7 +348,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
 
@@ -365,7 +365,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
 
@@ -601,7 +601,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   z-index: 10;
 }
 
@@ -645,7 +645,7 @@
   padding: 12px 24px;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   white-space: nowrap;
 }
 
@@ -770,7 +770,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -811,7 +811,7 @@
   justify-content: center;
   opacity: 0;
   backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .certCard:hover .certOverlay {
@@ -830,7 +830,7 @@
   border-radius: 30px;
   text-decoration: none;
   transform: translateY(20px);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .certCard:hover .viewBtn {

@@ -269,18 +269,23 @@ export default function Hero() {
               <div className={`${styles.sidebarNav} gsap-stagger-item`}>
                 <div className={styles.socialLine}></div>
                 <div className={styles.socialIcons}>
-                  <button type="button" className={styles.scrollArrow} onClick={handlePrevSocial}>&#9650;</button>
+                  <button type="button" className={styles.scrollArrow} onClick={handlePrevSocial} aria-label="Previous Social">
+                    &#9650;
+                  </button>
                   {visibleSocials.map(key => (
                     <button
                       key={key}
                       type="button"
                       onClick={() => setActiveSocial(key)}
+                      aria-label={`View ${key} social link`}
                       className={`${styles.iconCircle} ${activeSocial === key ? styles.activeIcon : ''}`}
                     >
                       {socialData[key].icon ? React.cloneElement(socialData[key].icon, { width: '20', height: '20' }) : key.charAt(0).toUpperCase() + key.slice(1)}
                     </button>
                   ))}
-                  <button type="button" className={styles.scrollArrow} onClick={handleNextSocial}>&#9660;</button>
+                  <button type="button" className={styles.scrollArrow} onClick={handleNextSocial} aria-label="Next Social">
+                    &#9660;
+                  </button>
                 </div>
                 <div className={styles.socialLine}></div>
               </div>

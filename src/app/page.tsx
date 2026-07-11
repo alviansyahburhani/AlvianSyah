@@ -14,8 +14,9 @@ export default function Home() {
         <Image
           id="hero-bg"
           src="/images/image.jpeg"
-          alt="Forest Adventure Background"
+          alt="Alvian Syah Burhani Web Developer Portfolio Background"
           fill
+          sizes="(max-width: 768px) 100vw, 100vw"
           className={styles.heroBg}
           priority
         />
