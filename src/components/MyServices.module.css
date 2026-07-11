@@ -22,7 +22,7 @@
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; Dihapus untuk menghindari konflik GSAP */
   gap: 30px;
   width: 100%;
   max-width: 955px;
