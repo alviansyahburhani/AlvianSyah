@@ -64,7 +64,8 @@ export default function Navbar() {
         <button
           type="button"
           className={`${styles.hamburger} ${isMobileMenuOpen ? styles.activeHamburger : ''}`}
-          aria-label="Menu"
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (

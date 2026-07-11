@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, color 0.4s ease;
   cursor: default;
 
   /* Ruang bawah disesuaikan agar pas dengan tombol 100px */
@@ -115,7 +115,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-accent, #B8CD86);
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, color 0.4s ease;
 }
 
 .cardWrapper:hover .iconWrapper {
@@ -155,7 +155,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, background-color 0.4s ease, color 0.4s ease;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -192,7 +192,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .dot:hover {

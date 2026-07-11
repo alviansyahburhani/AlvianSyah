@@ -19,6 +19,7 @@ export default function Home() {
           alt="Alvian Syah Burhani Web Developer Portfolio Background"
           fill
           sizes="(max-width: 768px) 100vw, 100vw"
+          quality={50}
           className={styles.heroBg}
           priority
         />
