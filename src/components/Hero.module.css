@@ -1,0 +1,406 @@
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* SIDEBAR - SOCIALS */
+.sidebar {
+  position: absolute;
+  bottom: -120px; /* Pas menyentuh dasar layar (karena tinggi hero calc(100vh - 120px)) */
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  width: 100px;
+  padding-bottom: 0; /* Dihapus agar garisnya mentok ke bawah */
+}
+
+.socialIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.socialLine {
+  width: 1px;
+  height: 40px; /* Dikembalikan menjadi lebih pendek agar tidak menabrak teks atas */
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.iconCircle {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.iconCircle:hover,
+.activeIcon {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-accent, #B8CD86);
+}
+
+.scrollArrow {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  font-size: 10px;
+  padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.scrollArrow:hover {
+  color: #FFFFFF;
+}
+
+.greenBlock {
+  width: max-content;
+  max-width: 400px;
+  min-height: 140px;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.socialTitle {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-accent, #B8CD86);
+}
+
+.socialDesc {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: pre-wrap;
+}
+
+/* MAIN CONTENT - TYPOGRAPHY */
+.mainContent {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: relative;
+}
+
+.typography {
+  position: relative;
+  margin-top: 15vh;
+  /* Diturunkan posisinya */
+  z-index: 2;
+  display: inline-block;
+  /* Membuat bungkusnya pas seukuran teks ALVIAN */
+}
+
+.titleOutline {
+  font-size: clamp(50px, 12vw, 170px);
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 0.8;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textAccent {
+  color: var(--color-accent, #B8CD86);
+  -webkit-text-stroke: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.subtitleSolid {
+  font-size: clamp(14px, 3.5vw, 40px);
+  font-weight: 800;
+  color: #F9F6EE;
+  letter-spacing: 0.1em;
+  margin: 0;
+  margin-top: -10px;
+  white-space: nowrap;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover Effects on Typography */
+.typography {
+  cursor: default;
+}
+
+.typography:hover .titleOutline {
+  color: #F9F6EE;
+  -webkit-text-stroke: 0px transparent;
+  text-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+}
+
+.typography:hover .textAccent {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-accent, #B8CD86);
+}
+
+.typography:hover .subtitleSolid {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  text-shadow: none;
+  letter-spacing: 0.2em;
+}
+
+/* RIGHT WIDGET - WEATHER / DATA / STATS */
+.weatherWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 15vh;
+  /* Sejajar dengan teks ALVIAN dan terbebas dari Navbar (80px) */
+  z-index: 2;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent, #B8CD86);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-accent, #B8CD86);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.pageNumber {
+  font-size: 32px; /* Diperkecil */
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent, #B8CD86);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.temperature {
+  font-size: 55px; /* Diperkecil */
+  font-weight: 200;
+  /* light/thin weight */
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.dateBlock {
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-accent, #B8CD86);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.day {
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}
+
+.dataModules {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dataBox {
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 24px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 140px;
+}
+
+.dataLabel {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.dataValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.bottomControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 40px;
+  width: auto;
+  padding: 0;
+  z-index: 10;
+}
+
+
+.navigationControls {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+
+.paginationDots {
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background-color: var(--color-accent, #B8CD86);
+  transform: scale(1.5);
+}
+
+@media (max-width: 1024px) {
+  /* Let clamp() handle font sizes automatically */
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 120px);
+    justify-content: flex-start;
+    padding-bottom: 120px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .typography {
+    text-align: center;
+    margin-top: 5vh;
+  }
+
+  .subtitleSolid {
+    width: 100%;
+    text-align: center;
+    margin-top: -5px;
+  }
+
+  .weatherWidget {
+    align-items: center;
+    margin-top: 80px;
+  }
+
+  .dateBlock,
+  .dataBox {
+    text-align: center;
+    align-items: center;
+  }
+
+  .dataModules {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .bottomControls {
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  .greenBlock {
+    display: none;
+  }
+}
+
+/* GSAP Initial States */
+.heroContainer :global(.gsap-stagger-item) {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.heroContainer :global(.gsap-green-block) {
+  transform: scaleY(0);
+  transform-origin: bottom;
+}

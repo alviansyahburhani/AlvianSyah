@@ -1,0 +1,403 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px 150px 20px;
+  /* Ubah '40px' ini jika ingin lebih naik/turun */
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-inter), sans-serif;
+  overflow: hidden;
+}
+
+.tabsContainer {
+  /* Membuatnya memanjang bebas edge-to-edge di semua layar */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background: transparent;
+  padding: 20px 0;
+  margin-bottom: 40px;
+  z-index: 10;
+
+  overflow: hidden;
+  /* Sembunyikan yang di luar batas agar rapi */
+  position: relative;
+  display: flex;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  /* GSAP will handle the infinite scroll now */
+}
+
+.marqueeGroup {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-right: 40px;
+  /* Jarak antara grup 1 dan grup 2 */
+}
+
+.tabBtn {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(40px, 7vw, 90px);
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 0.02em;
+}
+
+.tabBtn:hover {
+  -webkit-text-stroke: 2px var(--color-accent, #B8CD86);
+  color: rgba(184, 205, 134, 0.05);
+  transform: translateY(-8px) scale(1.1);
+  /* Jauh lebih pop-up */
+  text-shadow: 0 15px 40px rgba(184, 205, 134, 0.4);
+  /* Glow hijau terang */
+  z-index: 10;
+}
+
+.tabBtnActive {
+  color: #F9F6EE;
+  -webkit-text-stroke: 2px transparent;
+}
+
+.tabBtnActive:hover {
+  color: #FFFFFF;
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Carousel */
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  z-index: 10;
+  perspective: 1000px;
+  height: 350px;
+}
+
+.navArrow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #B8CD86;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.navArrow:hover {
+  background: rgba(184, 205, 134, 0.2);
+  transform: scale(1.1);
+}
+
+.cardsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+}
+
+.card {
+  position: absolute;
+  width: 240px;
+  height: 320px;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  border: 1px solid rgba(184, 205, 134, 0.2);
+  overflow: hidden;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, rgba(184, 205, 134, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+  opacity: 0.5;
+}
+
+.cardLeft {
+  transform: translateX(-110%) scale(0.85);
+  background: rgba(184, 205, 134, 0.02);
+  border-color: rgba(184, 205, 134, 0.1);
+  backdrop-filter: blur(5px);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.cardRight {
+  transform: translateX(110%) scale(0.85);
+  background: rgba(184, 205, 134, 0.02);
+  border-color: rgba(184, 205, 134, 0.1);
+  backdrop-filter: blur(5px);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.cardCenter {
+  transform: translateX(0) scale(1);
+  background: rgba(184, 205, 134, 0.06);
+  border-color: rgba(184, 205, 134, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  z-index: 5;
+  box-shadow: 0 20px 50px rgba(184, 205, 134, 0.15), 0 0 20px rgba(184, 205, 134, 0.2);
+}
+
+.cardCenter::after {
+  transform: scale(1.6);
+  opacity: 1;
+}
+
+.cardHidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  z-index: 0;
+}
+
+/* Card Content */
+.cardIconWrapper {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  color: #B8CD86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardCenter .cardIconWrapper {
+  color: #F9F6EE;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #F9F6EE;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.cardInfoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.cardCenter .infoRow {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.infoLabel {
+  color: #c7cabd;
+}
+
+.cardCenter .infoLabel {
+  color: rgba(249, 246, 238, 0.8);
+}
+
+.infoValue {
+  color: #B8CD86;
+}
+
+.cardCenter .infoValue {
+  color: #F9F6EE;
+}
+
+/* Big Hero Section Below */
+.heroContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  /* Mengikuti tinggi kontainer dinamis */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  color: rgba(184, 205, 134, 0.1);
+  z-index: 1;
+}
+
+.ribbonWrapper {
+  position: relative;
+  width: 120vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 100px;
+  /* Jarak pasti dari carousel yang tidak akan berubah walau di-zoom */
+  background: #B8CD86;
+  transform: rotate(-4deg);
+  padding: 10px 0;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ribbonTrack {
+  display: flex;
+  width: max-content;
+  animation: ribbonScroll 25s linear infinite;
+}
+
+.ribbonGroup {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 900;
+  color: #121413;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+@keyframes ribbonScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+
+  /* Sempurna mengulang 4 grup identik */
+}
+
+.ribbonItem {
+  display: flex;
+  align-items: center;
+}
+
+.ribbonDot {
+  margin: 0 24px;
+  width: 10px;
+  height: 10px;
+  background-color: #121413;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 15px 60px 15px;
+    /* Kurangi lagi padding di layar kecil agar jarak benar-benar rapat */
+  }
+
+  .tabsContainer {
+    padding: 12px 0;
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .carouselWrapper {
+    height: 300px;
+    /* Sesuaikan tinggi carousel dengan kartu yang lebih kecil */
+  }
+
+  .card {
+    width: 200px;
+    height: 280px;
+  }
+
+  .cardLeft {
+    transform: translateX(-85%) scale(0.85);
+  }
+
+  .cardRight {
+    transform: translateX(85%) scale(0.85);
+  }
+
+  .heroIcon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ribbonWrapper {
+    margin-top: 60px;
+    /* Jarak pita ke carousel dikurangi di HP */
+  }
+
+  .ribbonGroup {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .carouselWrapper {
+    gap: 10px;
+  }
+
+  .cardLeft,
+  .cardRight {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navArrow {
+    width: 36px;
+    height: 36px;
+  }
+}
