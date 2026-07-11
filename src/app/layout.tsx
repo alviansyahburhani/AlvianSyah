@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alviansyah.com"),
+  metadataBase: new URL("https://alviansyah.vercel.app"),
   title: "Alvian Syah System",
   description: "website profesional untuk bisnis Anda? Jelajahi portofolio saya dan mulai konsultasi pembuatan website impian Anda hari ini. Mari wujudkan ide Anda!",
   keywords: ["Alvian Syah Burhani", "Alvian", "Alvian Syah", "Web Developer", "Jasa Pembuatan Website", "Portofolio Developer", "Frontend Developer", "Machine Learning", "Backend Developer"],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alvian Syah System | Web Developer & Services",
     description: "Layanan jasa pembuatan website profesional dan portofolio digital Alvian Syah Burhani.",
-    url: "https://alviansyah.com", // Ganti dengan domain asli jika sudah ada
+    url: "https://alviansyah.vercel.app",
     siteName: "Alvian Syah System",
     images: [
       {
@@ -45,7 +45,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Alvian Syah Burhani",
-    "url": "https://alviansyah.com",
+    "url": "https://alviansyah.vercel.app",
     "jobTitle": "Developer",
     "alumniOf": "Universitas Muhammadiyah Makassar",
     "knowsAbout": ["Frontend Development", "Backend Development", "Machine Learning", "Next.js", "Alvian", "Alvian Syah", "Jasa Pembuatan Website", "Jasa Machine Learning",],

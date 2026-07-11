@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://alviansyah.com/sitemap.xml',
+    sitemap: 'https://alviansyah.vercel.app/sitemap.xml',
   }
 }
