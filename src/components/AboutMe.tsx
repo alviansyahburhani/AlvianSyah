@@ -135,7 +135,7 @@ export default function AboutMe() {
   const modalRef = useRef<HTMLDivElement>(null);
   const tabContentRef = useRef<HTMLDivElement>(null);
 
-  const bioString = "Hi, I'm Alvian. I build fast, scalable web applications with a focus on modern frontend architectures using React and Next.js. I thrive on translating complex requirements into clean, maintainable code that delivers exceptional user experiences.";
+  const bioString = "Hi, I'm Alvian. I build fast, scalable web applications using AI tools with a focus on modern frontend architectures using React and Next.js. I thrive on translating complex requirements into clean, maintainable code that delivers exceptional user experiences.";
   const bioWords = bioString.split(" ");
 
   useGSAP(() => {
@@ -370,6 +370,11 @@ export default function AboutMe() {
                     <p>
                       Selain coding, saya juga aktif mengeksplorasi desain UI/UX, karena saya percaya bahwa
                       kode yang hebat harus dipadukan dengan desain yang indah dan mudah digunakan oleh manusia.
+                    </p>
+                    <p>
+                        Dalam proses pengembangan, saya juga memanfaatkan AI untuk mempercepat penulisan kode, terutama saat
+                        membangun fitur-fitur baru. Namun, saya tidak memberikan kendali penuh kepada AI setiap kode yang
+                        dihasilkan tetap saya tinjau, pahami, dan sesuaikan sendiri, karena bagi saya AI adalah alat bantu,bukan pengganti proses berpikir seorang developer.
                     </p>
                   </div>
                 )}
